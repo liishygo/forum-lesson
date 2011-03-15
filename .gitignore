@@ -1,0 +1,47 @@
+## MAC OS
+.DS_Store
+._*
+Icon?
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
+
+## RAILS::GENERAL
+.bundle
+config/database.yml
+coverage
+db/*.sql
+db/*.sqlite3
+db/schema.rb
+log
+log/*.log
+pkg
+public/javascripts/all.js
+public/stylesheets/all.css
+public/system/*
+rdoc
+rerun.txt
+tmp/**/*
+tmp/*
+
+## RAILS::SPECIFIC
+.livereload
+.rvmrc
+config/api.yml
+config/recaptcha.yml
+config/*.sphinx.conf
+coverage/
+coverage.data
+db/sphinx/*
+rcov/
+sphinx_*.*
+test/*

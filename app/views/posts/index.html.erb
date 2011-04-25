@@ -1,0 +1,12 @@
+<p>Posts List</p>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= "Forum:#{post.forum_id},Title:#{post.title}, Author:#{post.author}" %>
+    <%= link_to("show", :controller => "posts", :action => "show", :id => post) %>
+    <%= link_to("edit", :controller => "posts", :action => "edit", :id => post) %>
+    <%= link_to("delete", :controller => "posts", :action => "destroy", :id => post) %>
+  </li>
+<% end %>
+</ul>
+<p><%= link_to("new post", :controller => "posts", :action => "new") %></p>

@@ -1,0 +1,21 @@
+<p>
+  forum name: <%= @forum.name %>
+</p>
+<p>
+  description: <%= @forum.description %>
+</p>
+<p>
+  <%= link_to("back to forums list", forums_path)%>
+</p>
+<p>
+  Posts under this Forum(new post)
+  <% #link_to("new post", new_post_path) %>
+</p>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <%= "Forum:#{post.forum_id},Title:#{post.title}, Author:#{post.author}" %>
+    <%= link_to("show", forum_post_path(@forum,post.id)) %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,14 @@
+<p>forums list</p>
+<ul>
+<% @forums.each do |forum| %>
+  <li>
+    <%= "#{forum.name} ： #{forum.description}" %>
+    <%= link_to("show", forum_path(forum)) %>
+    <%= link_to("edit", edit_forum_path(forum.id)) %>
+    <%= link_to("delete", forum_path(forum), :method => :delete) %>
+  </li>
+<% end %>
+</ul>
+<p>
+  <%= link_to("create a new forum", new_forum_path) %>
+</p>

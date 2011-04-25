@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>ForumLesson</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+<p><%= flash[:notice] %></p>
+<p><%= flash[:alert] %></p>
 <%= yield %>
 
 </body>

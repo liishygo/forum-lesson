@@ -1,0 +1,13 @@
+<p>create a new post</p>
+<% form_for @post, :url => forum_posts_path do |f| %>
+  <%= f.label :forum_id, "forum_id" %>
+  <%= f.text_field :forum_id, :value => @forum.id %><br />
+  <%= f.label :title, "title" %>
+  <%= f.text_field :title %><br />
+  <%= f.label :author, "author" %>
+  <%= f.text_field :author %><br />
+  <%= f.label :content, "content" %>
+  <%= f.text_area :content %>
+  
+  <%= f.submit "create" %>
+<% end %>

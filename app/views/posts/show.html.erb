@@ -1,0 +1,6 @@
+<p>Show A Post</p>
+<p><%= "Forum_id: #{@post.forum_id}" %></p>
+<p><%= "Title: #{@post.title}" %></p>
+<p><%= "Author: #{@post.author}" %></p>
+<p><%= "Content: #{@post.content}" %></p>
+<p><%= link_to("back to posts list", forum_path(@post.forum)) %></p>

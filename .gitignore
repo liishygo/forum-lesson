@@ -18,6 +18,8 @@ tmtags
 ## RAILS::GENERAL
 .bundle
 config/database.yml
+config/database.yml.example
+config/database.yml.example1
 coverage
 db/*.sql
 db/*.sqlite3

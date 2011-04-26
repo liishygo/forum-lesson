@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.save
     
-    redirect_to(:action => :index)
+    redirect_to forum_path(@post.forum)
   end
   
   def show
@@ -29,13 +29,13 @@ class PostsController < ApplicationController
   def update
     @post.update_attributes(params[:post])
     
-    redirect_to(:action => :show, :id => @post)
+    redirect_to forum_path(@post.forum)
   end
   
   def destroy
     @post.destroy
     
-    redirect_to(:action => :index)
+    redirect_to forum_path(@post.forum)
   end
   
   protected

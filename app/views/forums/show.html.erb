@@ -18,7 +18,7 @@
     <%= "Forum:#{post.forum_id},Title:#{post.title}, Author:#{post.author}" %>
     <%= link_to("show", forum_post_path(@forum, post)) %>
     <%= link_to("edit", edit_forum_post_path(@forum, post))%>
-    <%= link_to("delete", forum_post_path(@forum, post), :method => :delete)%>
+    <%= link_to("delete", forum_post_path(@forum, post), :method => :delete, :confirm => "are you sure?")%>
   </li>
 <% end %>
 </ul>

@@ -5,6 +5,21 @@ ForumLesson::Application.routes.draw do
   resources :forums do
     resources :posts
   end
+  
+  match "login" => "sessions#new", :as => :login
+  match "logout" => "sessions#destroy", :as => :logout
+  match "signup" => "users#new", :as => :signup
+  match "activate/:activation_code" => "users#activate", :as => :activate, :activation_code => nil
+  
+  resources :users do
+    member do
+      put :suspend
+      put :unsuspend
+      delete :purge
+    end
+  end
+  
+  
   #resources :categories do
   #  resources :tags, :controller => "category_tags", :only => [:show]
   #end  

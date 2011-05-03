@@ -5,4 +5,5 @@ class Post < ActiveRecord::Base
   validates_presence_of :forum_id
   
   belongs_to :forum
+  belongs_to :user
 end

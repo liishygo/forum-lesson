@@ -1,4 +1,6 @@
 ForumLesson::Application.routes.draw do
+  devise_for :users
+
   #get "home/index"
   root :to => "forums#index"
   #match ":controller(/:action(/:id(.:format)))"

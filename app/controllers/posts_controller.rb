@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
   before_filter :find_post, :only => [ :show, :edit, :update, :destroy ]
   before_filter :find_forum, :only => [ :index, :new ]
+  before_filter :authenticate_user!, :only => [ :new, :create, :edit, :update, :destroy ]
   
   def index
     @posts = @forum.posts

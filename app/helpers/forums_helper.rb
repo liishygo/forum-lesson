@@ -1,7 +1,7 @@
 module ForumsHelper
   
   def admin_signed_in_show_edit_forum(forum_id)
-    if user_signed_in? and current_user.id == 1
+    if user_signed_in? and 1 == current_user.id
       link_to("edit", edit_forum_path(forum_id))
     end
   end

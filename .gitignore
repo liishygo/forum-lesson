@@ -47,3 +47,6 @@ db/sphinx/*
 rcov/
 sphinx_*.*
 test/*
+
+.redcar
+.redcar/*.*

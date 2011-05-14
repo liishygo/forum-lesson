@@ -8,6 +8,9 @@ class ForumsController < ApplicationController
   end
   
   def new
+    if current_user.id != 1
+      redirect_to forums_path
+    end
     @forum = Forum.new
   end
   
@@ -26,7 +29,9 @@ class ForumsController < ApplicationController
   end
   
   def edit
-    
+    if current_user.id != 1
+      redirect_to forums_path
+    end
   end
   
   def update

@@ -1,19 +1,19 @@
 module ForumsHelper
   
   def admin_signed_in_show_edit_forum(forum_id)
-    if user_signed_in? and "1" == current_user.id
+    if user_signed_in? and current_user.id == 1
       link_to("edit", edit_forum_path(forum_id))
     end
   end
   
   def admin_signed_in_show_delete_forum(forum_id)
-    if user_signed_in? and "1" == current_user.id
+    if user_signed_in? and 1 == current_user.id
       link_to("delete", forum_path(forum_id), :method => :delete, :confirm => "Are you sure ?")
     end
   end
   
   def admin_signed_in_show_create_forum
-    if user_signed_in? and "1" == current_user.id
+    if user_signed_in? and 1 == current_user.id
       link_to("Create a new forum", new_forum_path)
     end
   end

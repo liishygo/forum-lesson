@@ -22,6 +22,9 @@ ForumLesson::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  config.active_record.observers = :user_observer
+  
+  # follow the instructions of devise
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+
 end
 

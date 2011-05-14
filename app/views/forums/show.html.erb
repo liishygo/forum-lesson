@@ -1,24 +1,26 @@
+<%= render :partial => "user_bar" %>
 <p>
-  forum name: <%= @forum.name %>
+  <%= link_to("Back to forums list", forums_path)%>
 </p>
-<p>
+<h1>forum : <%= @forum.name %></h1>
+<p style="color:#ccc">
   description: <%= @forum.description %>
 </p>
-<p>
-  <%= link_to("back to forums list", forums_path)%>
-</p>
+
 <p>
   Posts in this Forum(
-  <%= link_to("new post", new_forum_post_path(@forum)) %>
+  <%= user_signed_in_show_create_post(@forum.id) %>
+  <%# link_to("new post", new_forum_post_path(@forum)) %>
   )
 </p>
-<ul>
 <% @posts.each do |post| %>
-  <li>
-    <%= "Forum:#{post.forum_id},Title:#{post.title}, Author:#{post.author}" %>
-    <%= link_to("show", forum_post_path(@forum, post)) %>
-    <%= link_to("edit", edit_forum_post_path(@forum, post))%>
-    <%= link_to("delete", forum_post_path(@forum, post), :method => :delete, :confirm => "are you sure?")%>
-  </li>
+  <p>
+    <%= "#{@forum.name}>>" %>
+    <%= link_to(post.title, forum_post_path(@forum, post)) %>
+    <%= "by:#{post.user.login}" %>
+    <%# link_to("edit", edit_forum_post_path(@forum, post))%>
+    <%= user_can_edit_own_post(post.user_id, @forum, post) %>
+    <%# link_to("delete", forum_post_path(@forum, post), :method => :delete, :confirm => "are you sure?")%>
+    <%= user_can_delete_own_post(post.user_id, @forum, post) %>
+  </p>
 <% end %>
-</ul>

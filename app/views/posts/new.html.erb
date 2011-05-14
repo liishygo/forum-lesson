@@ -1,11 +1,13 @@
-<p>create a new post</p>
+<%= render :partial => "forums/user_bar" %>
+<h1>Create a new post</h1>
+<p>Forum: <%= @forum.name %></p>
 <% form_for @post, :url => forum_posts_path do |f| %>
   <%= f.label :forum_id, "forum_id" %>
   <%= f.text_field :forum_id, :value => @forum.id %><br />
+  <%= f.label :user_id, "user_id" %>
+  <%= f.text_field :user_id, :value => current_user.id %><br />
   <%= f.label :title, "title" %>
   <%= f.text_field :title %><br />
-  <%= f.label :author, "author" %>
-  <%= f.text_field :author %><br />
   <%= f.label :content, "content" %>
   <%= f.text_area :content %>
   

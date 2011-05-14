@@ -32,4 +32,4 @@ gem "mysql2"
 #   gem "webrat"
 # end
 
-gem "aasm"
+gem "devise"

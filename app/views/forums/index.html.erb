@@ -1,14 +1,18 @@
-<p>forums list</p>
+<%= render :partial => "user_bar" %>
+<p>choose a forum:</p>
 <ul>
 <% @forums.each do |forum| %>
   <li>
-    <%= "#{forum.name} ： #{forum.description}" %>
-    <%= link_to("show", forum_path(forum)) %>
-    <%= link_to("edit", edit_forum_path(forum.id)) %>
-    <%= link_to("delete", forum_path(forum), :method => :delete, :confirm => "are you sure?") %>
+    <%= link_to(forum.name, forum_path(forum)) %>
+    <%# link_to("edit", edit_forum_path(forum.id)) %>
+    <%= "( #{forum.description} )" %>
+    <%= admin_signed_in_show_edit_forum(forum.id) %>
+    <%# link_to("delete", forum_path(forum), :method => :delete, :confirm => "are you sure?") %>
+    <%= admin_signed_in_show_delete_forum(forum.id) %>
   </li>
 <% end %>
 </ul>
 <p>
-  <%= link_to("create a new forum", new_forum_path) %>
+  <%# link_to("create a new forum", new_forum_path) %>
+  <%= admin_signed_in_show_create_forum %>
 </p>

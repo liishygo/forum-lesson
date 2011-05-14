@@ -24,7 +24,9 @@ class PostsController < ApplicationController
   end
   
   def edit
-    
+    if current_user.id != @post.user_id
+      redirect_to forum_path(@post.forum)
+    end
   end
   
   def update

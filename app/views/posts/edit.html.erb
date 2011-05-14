@@ -1,12 +1,15 @@
-<p>Edit a Post</p>
+<%= render :partial => "forums/user_bar" %>
+<h1>Edit a Post</h1>
+<p>Forum: <%= @forum.name %></p>
 <% form_for @post, :url=> { :controller => "posts", :action => "update", :id => @post } do |f| %>
-  <%= f.label :forum_id, "Forum_id" %>
+  <%= f.label :forum_id, "Forum_id: " %>
   <%= f.text_field :forum_id %><br />
-  <%= f.label :title, "Title" %>
+  <%= "Author: #{@post.user.login}" %>
+  ( <%= f.label :user_id, "User_id: " %>
+  <%= f.text_field :user_id %> )<br />
+  <%= f.label :title, "Title: " %>
   <%= f.text_field :title %>  <br />
-  <%= f.label :author, "Author" %>
-  <%= f.text_field :author %><br />
-  <%= f.label :content, "Content" %>
+  <%= f.label :content, "Content: " %>
   <%= f.text_area :content %><br />
   
   <%= f.submit "Update"%>

@@ -1,6 +1,10 @@
-<p>Show A Post</p>
-<p><%= "Forum_id: #{@post.forum_id}" %></p>
-<p><%= "Title: #{@post.title}" %></p>
-<p><%= "Author: #{@post.author}" %></p>
-<p><%= "Content: #{@post.content}" %></p>
-<p><%= link_to("back to posts list", forum_path(@post.forum)) %></p>
+<%= render :partial => "forums/user_bar" %>
+<p>Forum:
+<%= link_to(@forum.name, forum_path(@forum.id)) %></p>
+<h1><%= "#{@post.title}" %></h1>
+<p>
+  <%= user_can_edit_own_post(@post.user_id, @forum, @post) %>
+  <%= user_can_delete_own_post(@post.user_id, @forum, @post) %></p>
+<p><%= "Author: #{@post.user.login}" %></p>
+<p>Content:<br />
+<%= @post.content %></p>

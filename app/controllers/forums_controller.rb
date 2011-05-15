@@ -25,7 +25,11 @@ class ForumsController < ApplicationController
   end
   
   def show
-    @posts = @forum.posts
+    if params[:order] == "author"
+      @posts = @forum.posts.author.paginate :page => params[:page], :per_page => 3
+    else
+      @posts = @forum.posts.recent.paginate :page => params[:page], :per_page => 3
+    end
   end
   
   def edit

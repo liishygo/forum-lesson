@@ -13,14 +13,15 @@
   <%# link_to("new post", new_forum_post_path(@forum)) %>
   )
 </p>
+
 <% @posts.each do |post| %>
   <p>
     <%= "#{@forum.name}>>" %>
     <%= link_to(post.title, forum_post_path(@forum, post)) %>
     <%= "by:#{post.user.login}" %>
-    <%# link_to("edit", edit_forum_post_path(@forum, post))%>
     <%= user_can_edit_own_post(post.user_id, @forum, post) %>
-    <%# link_to("delete", forum_post_path(@forum, post), :method => :delete, :confirm => "are you sure?")%>
     <%= user_can_delete_own_post(post.user_id, @forum, post) %>
   </p>
 <% end %>
+<%= will_paginate(@posts) %>
+<p><%= page_entries_info(@posts) %></p>

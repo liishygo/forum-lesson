@@ -10,8 +10,9 @@
 <p>
   Posts in this Forum(
   <%= user_signed_in_show_create_post(@forum.id) %>
-  <%# link_to("new post", new_forum_post_path(@forum)) %>
-  )
+  ) order by:
+  <%= link_to("recent", forum_path(@forum.id, :order => "recent", :page => params[:page])) %>
+  <%= link_to("author", forum_path(@forum.id, :order => "author", :page => params[:page])) %>
 </p>
 
 <% @posts.each do |post| %>
